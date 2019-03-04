@@ -240,3 +240,19 @@ Array
   <li><b>Validator.php</b>. It provides functions for validating method parameters and method return value using information in DocBloc comments</i>
   <li><b>VariableValidator.php</b>. It provides functions for validating different types of variables. For example integer, string, boolean and arrays</i>
 </ul>
+
+<h3>Installation</h3>
+
+<ol>
+
+<li>
+<h5>Install using composer:</h5>
+<p>Run the command: <b>composer require nadirlc/comment-manager</b></p>
+<p><b>OR</b></p>
+</li>
+
+<li>
+<h5>Download from GitHub</h5>
+<p>Run the command: <b>git clone https://github.com/nadirlc/comment-manager.git</b></p>
+</li>
+</ol>
