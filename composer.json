@@ -1,0 +1,19 @@
+{
+    "name": "nadirlc/comment-manager",
+    "type": "library",
+    "description": "Doc Block comment parser and method validator",
+    "keywords": ["doc bloc","comments", "parameter validation"],
+    "homepage": "https://www.pakjiddat.pk/articles/view/254/comment-parser",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Nadir Latif",
+            "email": "nadir@pakjiddat.pk",
+            "homepage": "https://www.pakjiddat.pk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    }
+}
