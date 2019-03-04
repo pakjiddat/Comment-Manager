@@ -7,7 +7,7 @@ namespace CommentManager;
 /**
  * Provides functions for validating function parameters and return values
  *
- * @category   Validator
+ * @category   UtilityClass
  * @author     Nadir Latif <nadir@pakjiddat.pk>
  * @license    https://www.gnu.org/licenses/gpl-2.0.html GNU General private License, version 2
  */
@@ -20,7 +20,9 @@ final class Validator
 	 * 
      * @param array $param_values the value of the method parameters
 	 * @param array $tag_details the parsed param Doc Block comments
-	 * @param callable $callback optional the custom callback function
+	 * @param array $callback optional the custom callback function
+     *    callback => array the custom callback function. the first index is the object, the second is the function name
+	 *    params => array the parameters for the callback function   	 
 	 * 
 	 * @return array $validation_result the result of validating the method parameters
 	 *    is_valid => bool indicates whether the parameters are valid
@@ -51,14 +53,12 @@ final class Validator
 			else {
 				/** The type of the parameter */
 				$variable_type                      = $tag_details[$count]['type'];
-                /** The validation callback is formatted */
-        		$callback_data                      = array("callback" => $callback, "params" => array());
 				/** The variable is validated */				
 				$validation_result                  = $variable_validator->ValidateVariable(
 				                                          $tag_details[$count],
 				                                          $param_values[$param_name],
 				                                          $function_name,
-				                                          $callback_data
+				                                          $callback
 				                                      );
 			
 				/** If the validation message is not empty */

@@ -17,7 +17,7 @@ final class CommentManager
     protected static $instance;   
     /**
      * Used to return a single instance of the class
-     * 
+     *
      * Checks if instance already exists. If it does not exist then it is created. The instance is returned
 	 * 
      * @return Reflection static::$instance name the instance of the correct child class is returned 
@@ -51,12 +51,14 @@ final class CommentManager
     	 *    function_name => string the name of the function
     	 *    parameters => array the function parameters
     	 *    context => string the current application context
-    	 * @param callable $validation_callback the custom function for validating the function parameters
+    	 * @param array $validation_callback the custom function for validating the function parameters
+	     *    callback => array the custom callback function. the first index is the object, the second is the function name
+	     *    params => array the parameters for the callback function
     	 *
     	 * @return array $result the result of calling the function
     	 *    value => mixed the function return value
     	 */
-    	$closure = function (array $callback, callable $validation_callback) {
+    	$closure = function (array $callback, array $validation_callback) {
 
     		/** The Parser object is created */
 			$parser                       = new Parser();
@@ -146,11 +148,11 @@ final class CommentManager
     ) : array {
  
         /** An object of class Validator is created */
-        $validator                     = new Validator();
+        $validator                = new Validator();
         /** The Parser class object is created */
-        $parser                                 = new Parser();           
+        $parser                   = new Parser();           
     	/** The method doc block comments are parsed */
-		$parsed_comments          = UtilitiesFramework::Factory("parser")->ParseMethodDocBlockComments(
+		$parsed_comments          = $parser->ParseMethodDocBlockComments(
 		                                $class_name,
 		                                $function_name
 		                            );
@@ -158,7 +160,7 @@ final class CommentManager
 		/** The parsed parameter information */
 		$parsed_parameters        = $parsed_comments['parameters'];
 		/** The result of validating the method parameters against the parsed parameters */ 
-		$validation_result        = UtilitiesFramework::Factory("validator")->ValidateParameters(
+		$validation_result        = $validator->ValidateParameters(
 		                                $parameters,
 		                                $parsed_parameters,
 		                                $function_name,		                                

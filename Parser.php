@@ -7,7 +7,7 @@ namespace CommentManager;
 /**
  * Provides functions for extracting method Doc Block comments
  *
- * @category   Parser
+ * @category   UtilityClass
  * @author     Nadir Latif <nadir@pakjiddat.pk>
  * @license    https://www.gnu.org/licenses/gpl-2.0.html GNU General private License, version 2
  */

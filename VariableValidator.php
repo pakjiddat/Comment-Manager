@@ -8,7 +8,7 @@ namespace CommentManager;
  * Provides functions for validating the value of a method parameter or return value
  * The value is validated against the Doc Block comment for the parameter or return value
  *
- * @category   Validator
+ * @category   UtilityClass
  * @author     Nadir Latif <nadir@pakjiddat.pk>
  * @license    https://www.gnu.org/licenses/gpl-2.0.html GNU General private License, version 2
  */
@@ -89,7 +89,7 @@ final class VariableValidator
 		    /** If the parameter type is json */
 		    else if ($tag_details['type'] == "json") {
 		         /** If the parameter value is not in json format */
-		        if (!$this->IsJson($param_value)) {
+		        if (!UtilitiesFramework::Factory("stringutils")->IsJson($param_value)) {
 		            /** The validation message is set */
 		            $validation_result["message"] = "Parameter: " . $variable_name . " is not in json format";
 		        }

@@ -234,11 +234,11 @@ Array
 <p>The Comment Manager package consists of the following files:</p>
 <ul>
   <li><b>CommentManager.php</b>. It provides a closure function for safe calling of class methods. It also provides functions for parsing and validating method parameters and return value</li>
-  <li><b>Parser.php</b>. It provides a single function for parsing all method DocBlock comments
+  <li><b>Parser.php</b>. It provides a single function for parsing all method DocBlock comments</li>
   <li><b>DescriptionParser.php</b>. It provides functions for extracting long and short method description as well as the internal and version tags</li>
-  <li><b>ParameterParser.php</b>. It provides functions for parsing the <b>@param</b> tag</i>  
-  <li><b>Validator.php</b>. It provides functions for validating method parameters and method return value using information in DocBloc comments</i>
-  <li><b>VariableValidator.php</b>. It provides functions for validating different types of variables. For example integer, string, boolean and arrays</i>
+  <li><b>ParameterParser.php</b>. It provides functions for parsing the <b>@param</b> tag</li>
+  <li><b>Validator.php</b>. It provides functions for validating method parameters and method return value using information in DocBloc comments</li>
+  <li><b>VariableValidator.php</b>. It provides functions for validating different types of variables. For example integer, string, boolean and arrays</li>
 </ul>
 
 <h3>Installation</h3>
@@ -252,7 +252,7 @@ Array
 </li>
 
 <li>
-<h5>Download from GitHub</h5>
+<h5>Download from the <a href='https://github.com/nadirlc/comment-manager'>Comment Manager GitHub Repository</a></h5>
 <p>Run the command: <b>git clone https://github.com/nadirlc/comment-manager.git</b></p>
 </li>
 </ol>

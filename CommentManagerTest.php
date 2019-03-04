@@ -2,13 +2,26 @@
 
 declare(strict_types=1);
 
-namespace CommentManger;
+namespace CommentManager;
 
+/** The CommentManager class is included */
+require("CommentManager.php");
+/** The DescriptionParser class is included */
+require("DescriptionParser.php");
+/** The ParameterParser class is included */
+require("ParameterParser.php");
+/** The Parser class is included */
+require("Parser.php");
+/** The Validator class is included */
+require("Validator.php");
+/** The VariableValidator class is included */
+require("VariableValidator.php");
+        
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
 
 /**
- * Provides functions for test CommentManager package
+ * Provides functions for testing CommentManager package
  *
  * @category   Test
  * @author     Nadir Latif <nadir@pakjiddat.pk>
@@ -87,43 +100,37 @@ final class CommentManagerTest
     public function TestSafeFunctionCaller() : void
     {
         /** The function that provides custom validation for the test function parameters */
-        $custom_validation_callback     = array($this, "CustomValidation");
+        $custom_validation_callback = array("callback" => array($this, "CustomValidation"), "params" => array());
         /** The safe_function_caller closure is fetched from the CommentManager class */
-        $safe_function_caller           = CommentManager::GetClosure();
-        
-        /** The current class name */
-        $class_name                     = get_class();
-        
-        /** The random string */
-        $random_string                  = "The result of adding the three integers is: ";
+        $safe_function_caller       = CommentManager::GetClosure();
         /** The parameters for the test function */
-        $parameters                     = array(
-            								  "number1" => 30,
-									          "number2" => 10,
-									          "number3" => 10,
-         								      "data" => array(
-                 										    "type" => "integer",
-                                                            "random_string" => $random_string
-									                    )
-								          );
+        $parameters                 = array(
+            						      "number1" => 30,
+									      "number2" => 10,
+									      "number3" => 10,
+         								  "data" => array(
+                 						    		    "type" => "integer",
+                                                        "random_string" => "The result of adding the three integers is: "
+									                )
+								      );
 	    /** The callback */
-	    $callback                       = array(
-	                                          "class_name" => $class_name,
-	                                          "class_object" => $this,
-										      "function_name" => "AddNumbers", 
-										      "parameters" => $parameters, 
-										      "context" => "cli"
-								          );
+	    $callback                   = array(
+	                                      "class_name" => get_class(),
+	                                      "class_object" => $this,
+									      "function_name" => "AddNumbers", 
+									      "parameters" => $parameters, 
+									      "context" => "cli"
+								      );
         try {								          
             /** The test function is called through the safe function caller */
-            $result                     = $safe_function_caller($callback, $custom_validation_callback);			
+            $result                 = $safe_function_caller($callback, $custom_validation_callback);			
         }
         catch (\Error $e) {
             /** The error message is displayed and the script ends */
             die($e->getMessage());
         }
         /** The result of adding the numbers is displayed */
-        echo $result['random_string'] . $result['sum'];
+        echo "\n\n" . $result['random_string'] . $result['sum'] . "\n\n\n";
     }
 }
 

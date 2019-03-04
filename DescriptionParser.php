@@ -116,3 +116,4 @@ final class DescriptionParser
 		return $internal_tag_list;
     }
 }
+
